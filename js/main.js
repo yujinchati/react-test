@@ -3,6 +3,9 @@ const btns = document.querySelectorAll('li');
 
 btns.forEach((btn, idx) => {
 	btn.addEventListener('click', (e) => {
+		//재클릭 방지
+		if (e.currentTarget.classList.contains('on')) return;
+
 		btns.forEach((btn) => btn.classList.remove('on'));
 		btnClickOn(btns[idx]);
 		const backColor = btns[idx].innerText;
